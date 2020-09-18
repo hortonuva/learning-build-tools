@@ -4,7 +4,7 @@
 
 * This directory will have the Wahoovian matrix solution/demo in it eventually (but not yet).
 * Subdirectory *build-c++-demo* has a demo program that uses CMake, along with a locally installed library, and a externally installed library.
-* The CMakeLists.txt file is heavily commented.  This is the configuration file for CMake.
+* The CMakeLists.txt file is heavily commented.  This is the configuration file for CMake. The number of commands is actually fairly small if you ignore the comments (and the setup for Boost).
 
 ## Some Background:
 
@@ -36,13 +36,13 @@
 * The magic is done by CMake's *find_package* command. It looks places where libraries might be.  Where exactly?  I'm not sure!  I couldn't find clear answers in the documentation.  (A little help here?) 
 * On my Mac, there was a copy of the .a files for the Boost library already in */usr/local/lib/libboost_\**.  It found them.
 * If your machine doesn't have these, we need to figure out how to download Boost and put them in a right place.  We'll have to explain this to the students.
-* If don't have Boost, comment out all references to Boost stuff and you'll see how things work with the logger and the *greeter()* method.
+* If you don't have Boost, comment out all references to Boost stuff and you'll see how things work with the logger and the *greeter()* method.
 
    
 ## For more info:
 
 * Our demo didn't need many CMake commands.  The tutorials I have found go deep into harder things quickly, and IMHO are tough for those new to this.
 * The official tutorial is in the CMake documentation here: https://cmake.org/cmake/help/latest/guide/tutorial/index.html
-* This is also a good tutorial: https://cliutils.gitlab.io/modern-cmake/  (Include installation instructions.)
+* This is also a good tutorial: https://cliutils.gitlab.io/modern-cmake/  (Includes installation instructions.)
    
    
