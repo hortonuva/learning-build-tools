@@ -37,25 +37,27 @@ Gradle is a build automation tool that is popular for Java and Android developme
 
 * Our goal is to find and use some 3rd party libraries, and to create a Zip file that can be distributed and run stand-alone because it contains all the classes for those libraries.  (Sure it's big, but your user won't have to add Jar files to CLASSPATH.)
 
-* Looking in file *build.gradle* file supplied with our larger demo, you'll see it includes two *plugins*.  No need to change these.
+* These instructions are written as if you're looking at the demo code supplied, while update your own project in your own *demo-build* folder.
+
+* Looking in file *build.gradle* file supplied with our demo, you'll see it includes two *plugins*.  No need to change these.
 
 * The *repositories* section names a on-line Gradle repository that stores 3rd party packages.  The one created by *init* listed here (jcenter) is fine.
 
 * The *application* section specifies which Java class has the main() method that you want to execute when your application is run.
 
-* The *jar* section controls creation of the .jar file that will be put in *build/libs* (and can be run from the command-line with the command *java -jar*).  Some of what's here is like Hogwarts spell you might memorize without knowing exactly what it does.  The *manifest* subsection has to define the class with main().  The "Multi-Release" setting has to be there to make many 3rd party libraries happy. (Thanks StackOverflow!)  If you want to the Jar file to have a different name or append a version number to the Jar file's name, the two lines that are commented out can do that.
+* The *jar* section controls creation of the .jar file that will be put in *build/libs* (and can be run from the command-line with the command *java -jar*).  Some of what's here is like a Hogwarts spell you might memorize without knowing exactly why it works.  The *manifest* subsection has to define the class that has main().  The "Multi-Release" setting has to be there to make many 3rd party libraries happy. (Thanks StackOverflow!)  If you want the Jar file to have a different name or append a version number to the Jar file's name, the two lines that are commented out can do that.
 
 * In the *jar* section the code starting with "from" and with the "zipTree" function call are the magic that copies all the 3rd party libraries into your Jar file, and not just your code.  Don't change this if you want your Jar file to be like that.
 
 * We've saved the best for last perhaps:  the *dependencies* section.  This section is what finds and retrieves and includes your 3rd party libraries.  When you find the documentation for a 3rd party library on the Web, many have the lines required for *build.gradle* documented, and you just cut-and-paste them into this file!
 
-* The Gradle *init* task added two here that you and keep or comment out.  One is for JUnit testing, so we might keep that for when we use JUnit.  The other is for a nice Google general purpose data structures library, Guava: https://guava.dev/   BTW, you can specify a dependency in *build.gradle* in two forms, and both of these are in "Maven" format.
+* The Gradle *init* task added two here that you can keep or comment out.  One is for JUnit testing, so we might keep that for when we use JUnit.  The other is for a nice Google general purpose data structures library, Guava: https://guava.dev/   BTW, you can specify a dependency in *build.gradle* in two forms, and both of these are in "Maven" format.
 
 * Our demo code uses Apache's popular logging library, "Log4J 2".  It needs two lines to go into *build.gradle*, which I copied from https://logging.apache.org/log4j/2.x/maven-artifacts.html
 
 * Our demo code uses matrix classes from Apache's Common Maths library. https://commons.apache.org/proper/commons-math/userguide/linear.html   It just needs one line in *build.gradle*
 
-* There's a way to specify "the latest version" for a library, but often we want to pick a version and stick with it over project's lifetime.  (Unless we deliberately change and test our project with the new version.)
+* There's a way to specify "the latest version" for a library, but often we want to pick a version and stick with it over a project's lifetime.  (Unless we deliberately change and test our project with the new version.)
 
 * When you execute *gradlew build* after adding these lines, the library is downloaded and stored in a central cache for your account on your machine. The cached version is reused for later builds, but they expire after a fixed period and will be downloaded again if needed. (Where's the cache?  On \*nix machines like a Mac, look in *~/.gradle*.)  But all this is totally handled by Gradle, and you have to do nothing.
 
