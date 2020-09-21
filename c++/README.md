@@ -1,5 +1,9 @@
 # README for build-tool lesson for c++
 
+## Update on 9/21
+
+See section at end about using a different logging library, which may work better for MinGW on Windows.  
+
 ## Info
 
 * This directory will have the Wahoovian matrix solution/demo in it eventually (but not yet).
@@ -37,6 +41,18 @@
 * On my Mac, there was a copy of the .a files for the Boost library already in */usr/local/lib/libboost_\**.  It found them.
 * If your machine doesn't have these, we need to figure out how to download Boost and put them in a right place.  We'll have to explain this to the students.
 * If you don't have Boost, comment out all references to Boost stuff and you'll see how things work with the logger and the *greeter()* method.
+
+## Update: Using Plog instead of loguru
+
+* This is found in the subdirectory *build-c++-demo2*.   This demo is just like the previous one except loguru is replaced by Plog.  https://github.com/SergiusTheBest/plog
+
+* The Plog library is a "header-only" library, meaning it's all defined in header files and not in .cpp files.  
+
+* There are many files for Plog, all stored in this project in the subdirectory *plog*.
+
+* In *CMakeLists.txt* we just need the magic line to make sure header files are found in that subdirectory.
+
+* All else is the same, so build and run it as described above.  The initialization line in *main.cpp* names the log file *myapp\_log.txt*.  Note that Plog does NOT truncate the log-file each time the program is run, so it keeps messages from run to run.
 
    
 ## For more info:
