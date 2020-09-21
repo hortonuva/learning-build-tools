@@ -3,7 +3,7 @@
 ## Info
 
 * This directory will have the Wahoovian matrix solution/demo in it eventually (but not yet).
-* Subdirectory *build-hava-demo* has a demo program that uses Gradel, along with a locally installed library, and a externally installed library.
+* Subdirectory *build-java-demo* has a demo program that uses Gradle, along with a locally installed library, and a externally installed library.
 * The build.grade file is heavily commented.  This is the configuration file for Gradle. 
 
 ## Some Background:
