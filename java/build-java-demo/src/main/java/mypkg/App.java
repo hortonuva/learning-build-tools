@@ -4,6 +4,8 @@
 
 package mypkg;
 
+import util.Greeter;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,21 +20,24 @@ public class App {
     private static final Logger logger = LogManager.getLogger();
 
     
-    public String getGreeting() {
-        return "Hello world.";
-    }
+//     public String getGreeting() {
+//         return "Hello world.";
+//     }
 
     public static void main(String[] args) {
 
         Configurator.setLevel(logger.getName(), Level.TRACE);
         logger.info("Entering application.");
 	
-        System.out.println(new App().getGreeting());
+//         System.out.println(new App().getGreeting());
+        Greeter.greeter("greeter() called to print: entering application");
 
         logger.info("Calling doMatrixStuff()");
-	doMatrixStuff();
+        doMatrixStuff();
 
-        logger.info("Exiting  application.");
+        logger.info("Exiting application.");
+        Greeter.greeter("greeter() called to print: exiting application");
+
     }
 
     private static void doMatrixStuff() {
